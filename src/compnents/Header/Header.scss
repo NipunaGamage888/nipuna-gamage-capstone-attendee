@@ -1,0 +1,41 @@
+.header {
+    &__main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem 5rem;
+    }
+    &__heading {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff; 
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); 
+    
+    
+      &:before {
+        content: "Parking ";
+        color: #FFD700; 
+      }
+    
+   
+      &:after {
+        content: "genie";
+        color: #fff; 
+      }
+    }
+    &__list {
+      list-style-type: none;
+      display: flex;
+    }
+    &__li {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+      padding-right: 1rem;
+    }
+    &__user-logged {
+      display: none;
+    }
+  }
+  
