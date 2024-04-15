@@ -4,7 +4,7 @@ import "./TabletView.scss";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function TabletsView() {
+function TabletsView(props) {
   const [parkings, setParkings] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredParkings, setFilteredParkings] = useState([]);
@@ -13,9 +13,16 @@ function TabletsView() {
     const parkings = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8081/api/booking/information/${1}`
+          `http://localhost:8081/api/booking/information/${props.parkingId}`
         );
-        setParkings(response.data);
+        if (response.status === 200) {
+            console.log(response)
+            setParkings(response.data);
+          } else {
+            console.error("No parking data available");
+          }
+        //
+        //setParkings(response.data);
       } catch (error) {
         console.error(error);
       }
