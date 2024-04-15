@@ -38,15 +38,17 @@ function TabletsView() {
     <div className="table">
       <div className="table__search-container">
         <input
-        className="table__search"
+          className="table__search"
           type="text"
           placeholder="Enter Vehicle Number..."
           value={search}
           onChange={handleSearchInputChange}
         />
-        <button className="table__button" onClick={handleSearch}>Search</button>
+        <button className="table__button" onClick={handleSearch}>
+          Search
+        </button>
       </div>
-      <table >
+      {/*<table className="table__table-view" >
         <thead className="table__head">
           <tr>
             <th className="table__title">
@@ -63,47 +65,60 @@ function TabletsView() {
             </th>
           </tr>
         </thead>
-        <tbody className="table__body">
-        {showFiltered
-            ? filteredParkings.map((parking) => (
-                <tr className="table__body-title" key={parking.id}>
-                  <td className="table__info">
-                    <p className="table__info-name">{parking.vehicle_num}</p>
-                  </td>
-                  <td className="table__info">{parking.starting_Time}</td>
-                  <td className="table__info">
-                    <p className="table__info">{parking.expiry_Time}</p>
-                  </td>
-                  <td className="table__info">
-                    {parking.user_id === null ? "Guest" : parking.user_id}
-                  </td>
-                  <td className="table__info"></td>
-                </tr>
-              ))
-            :
-          parkings.length > 0 ? (
-            parkings.map((parking) => (
-              <tr className="table__body-title" key={parking.id}>
-                <td className="table__info">
-                  <p className="table__info-name">{parking.vehicle_num} </p>
-                </td>
-                <td className="table__info">{parking.starting_Time}</td>
-                <td className="table__info">
-                  <p className="table__info">{parking.expiry_Time}</p>
-                </td>
-                <td className="table__info">
-                  {parking.user_id === null ? "Guest" : parking.user_id}
-                </td>
-                <td className="table__info"></td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5">No parkings Available in this warehouse</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+  <tbody className="table__body">*/}
+      {showFiltered ? (
+        filteredParkings.map((parking) => (
+          <div className="table__body-title" key={parking.id}>
+            <div className="table__info">
+              <h2>vehicle_number</h2>
+              <p className="table__info-name">{parking.vehicle_num}</p>
+            </div>
+            <div className="table__info">
+              <h2>Starting_time</h2>
+              <p className="table__info-name">{parking.starting_Time}</p>
+            </div>
+            <div className="table__info">
+              <h2>Expiry Time</h2>
+              <p className="table__info-name">{parking.expiry_Time}</p>
+            </div>
+            <div className="table__info">
+              <h2>User ID</h2>
+              <p className="table__info-name">
+                {parking.user_id === null ? "Guest" : parking.user_id}
+              </p>
+            </div>
+            
+          </div>
+        ))
+      ) : parkings.length > 0 ? (
+        parkings.map((parking) => (
+          <div className="table__body-title" key={parking.id}>
+          <div className="table__info">
+            <h2>vehicle_number</h2>
+            <p className="table__info-name">{parking.vehicle_num}</p>
+          </div>
+          <div className="table__info">
+            <h2>Starting_time</h2>
+            <p className="table__info-name">{parking.starting_Time}</p>
+          </div>
+          <div className="table__info">
+            <h2>Expiry Time</h2>
+            <p className="table__info-name">{parking.expiry_Time}</p>
+          </div>
+          <div className="table__info">
+            <h2>User ID</h2>
+            <p className="table__info-name">
+              {parking.user_id === null ? "Guest" : parking.user_id}
+            </p>
+          </div>
+          
+        </div>
+        ))
+      ) : (
+        <div>
+          <div colSpan="5">No parkings Available in this warehouse</div>
+        </div>
+      )}
     </div>
   );
 }

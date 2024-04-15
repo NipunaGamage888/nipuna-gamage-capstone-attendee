@@ -1,8 +1,11 @@
-
 @use "../../styles/partials/mixings.scss" as *;
 .table {
   position: relative;
   border-radius: 2px;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   width: 90%;
   bottom: 0;
   left: 0;
@@ -13,12 +16,13 @@
   margin-top: 2rem;
   margin: auto;
   padding-left: 2rem;
-  background-color:rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 
   &__head {
     text-align: left;
   }
-  &__search-container{
+ 
+  &__search-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +35,7 @@
     color: #ffd700;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
-   
+
     margin-right: 2rem;
 
     &::placeholder {
@@ -45,7 +49,6 @@
     height: 3rem;
     border-radius: 5px;
     width: 10rem;
-  
   }
 
   &__title {
@@ -71,12 +74,18 @@
   }
 
   &__body-title {
-    border-bottom: 1px solid wheat;
-    text-align: left;
-    &:hover {
-      background-color: #f0f0f0;
-      color: #333;
-    }
+    width: 80%;
+    // display: flex;
+    // flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: #ffff00;
+    //justify-content: space-between;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
   &__info-name {
     vertical-align: middle;
@@ -101,7 +110,6 @@
     font-weight: 600;
     @include tablet {
       padding: 1rem;
-    
     }
   }
   &__item {
