@@ -17,11 +17,10 @@
     align-items: center;
     padding: 4rem 5rem;
     @include tablet {
-    width: 100%;
+    width: 90%;
     justify-content: flex-start;
       display: flex;
       flex-direction: row;
-      background-color: black;
       align-items: center;
       padding: 2rem 2rem;
      

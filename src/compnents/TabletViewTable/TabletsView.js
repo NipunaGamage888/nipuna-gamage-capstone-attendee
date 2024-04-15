@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 function TabletsView() {
   const [parkings, setParkings] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredParkings, setFilteredParkings] = useState([]);
+  const [showFiltered, setShowFiltered] = useState(false);
   useEffect(() => {
     const parkings = async () => {
       try {
@@ -19,9 +22,31 @@ function TabletsView() {
     };
     parkings();
   }, []);
+
+  const handleSearchInputChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSearch = () => {
+    const filtered = parkings.filter((parking) =>
+      parking.vehicle_num.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredParkings(filtered);
+    setShowFiltered(true);
+  };
   return (
-    <div>
-      <table className="table">
+    <div className="table">
+      <div className="table__search-container">
+        <input
+        className="table__search"
+          type="text"
+          placeholder="Enter Vehicle Number..."
+          value={search}
+          onChange={handleSearchInputChange}
+        />
+        <button className="table__button" onClick={handleSearch}>Search</button>
+      </div>
+      <table >
         <thead className="table__head">
           <tr>
             <th className="table__title">
@@ -39,7 +64,24 @@ function TabletsView() {
           </tr>
         </thead>
         <tbody className="table__body">
-          {parkings.length > 0 ? (
+        {showFiltered
+            ? filteredParkings.map((parking) => (
+                <tr className="table__body-title" key={parking.id}>
+                  <td className="table__info">
+                    <p className="table__info-name">{parking.vehicle_num}</p>
+                  </td>
+                  <td className="table__info">{parking.starting_Time}</td>
+                  <td className="table__info">
+                    <p className="table__info">{parking.expiry_Time}</p>
+                  </td>
+                  <td className="table__info">
+                    {parking.user_id === null ? "Guest" : parking.user_id}
+                  </td>
+                  <td className="table__info"></td>
+                </tr>
+              ))
+            :
+          parkings.length > 0 ? (
             parkings.map((parking) => (
               <tr className="table__body-title" key={parking.id}>
                 <td className="table__info">
@@ -49,7 +91,9 @@ function TabletsView() {
                 <td className="table__info">
                   <p className="table__info">{parking.expiry_Time}</p>
                 </td>
-                <td className="table__info">{parking.user_id === null ? 'Guest': parking.user_id}</td>
+                <td className="table__info">
+                  {parking.user_id === null ? "Guest" : parking.user_id}
+                </td>
                 <td className="table__info"></td>
               </tr>
             ))
