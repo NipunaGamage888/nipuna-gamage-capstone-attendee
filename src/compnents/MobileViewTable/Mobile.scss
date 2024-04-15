@@ -1,0 +1,78 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixings.scss" as *;
+body{
+    background-image:url('../../assets/table.jpg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.main-mobile {
+  background-color:rgba(0, 0, 0, 0.5);
+  width: 100%;
+  margin: auto;
+  position: relative;
+  border-radius: 2px;
+  width: 90%;
+  top: 0rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &__first-sec {
+    padding: 0.5rem 2rem 2rem 2rem;
+    border-bottom: 1px solid wheat;
+    &:first-child {
+      
+    }
+  }
+  &__info {
+    display: flex;
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  &__cat-name {
+    padding-right: 10rem;
+  }
+  &__name-attribute {
+    display: flex;
+    align-items: center;
+  }
+  &__name-info {
+    margin-bottom: 2rem;
+  }
+  &__item-heading {
+    font-size: 1rem;
+    color: #ffd700;
+    font-weight: 400;
+  }
+  &__name {
+    color: white;
+    font-weight: 600;
+  }
+  &__name-image {
+    height: 1.2rem;
+  }
+  &__category-name {
+    color: white;
+    font-weight: 600;
+  }
+  &__stat-QTY {
+  }
+  &__status {
+    margin-bottom: 2rem;
+  }
+  &__action {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__status-info {
+   
+      
+      color: white;
+      border-radius: 20px;
+      line-height: 2.2rem;
+    }
+   
+  
+}

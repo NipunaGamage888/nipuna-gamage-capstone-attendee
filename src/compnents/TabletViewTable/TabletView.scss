@@ -1,0 +1,88 @@
+
+@use "../../styles/partials/mixings.scss" as *;
+.table {
+  position: relative;
+  border-radius: 2px;
+  width: 90%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-bottom: none;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  margin: auto;
+  padding-left: 2rem;
+  background-color:rgba(0, 0, 0, 0.5);
+
+  &__head {
+    text-align: left;
+  }
+
+  &__title {
+    white-space: nowrap;
+    padding: 1rem 3rem;
+    align-items: center;
+    @include tablet {
+      padding: 1rem;
+    }
+  }
+  &__heading-icon {
+    width: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__heading {
+    @include tablet {
+      color: yellow;
+      vertical-align: middle;
+      padding-right: 1rem;
+      display: inline-block;
+    }
+  }
+
+  &__body-title {
+    border-bottom: 1px solid wheat;
+    text-align: left;
+    &:hover {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+  }
+  &__info-name {
+    vertical-align: middle;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    display: inline-block;
+    @include tablet {
+      padding: 1rem;
+    }
+  }
+  &__info-image {
+    width: 1.5rem;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  &__info {
+    font-size: 1.2rem;
+    padding: 3rem;
+    color: black;
+    font-weight: 600;
+    @include tablet {
+      padding: 1rem;
+    
+    }
+  }
+  &__item {
+    vertical-align: middle;
+    padding-right: 1rem;
+    display: inline-block;
+  }
+  &__item-info {
+    vertical-align: middle;
+    width: 1rem;
+    display: inline-block;
+  }
+}
