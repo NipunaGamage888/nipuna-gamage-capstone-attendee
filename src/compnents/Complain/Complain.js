@@ -59,7 +59,7 @@ function Complain() {
         </form>
         <div>
           <button className="inquiry__button" onClick={handleBooking}>
-            Book Now
+            Send Inquiry
           </button>
         </div>
       </div>

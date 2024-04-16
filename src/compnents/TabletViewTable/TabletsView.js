@@ -9,6 +9,7 @@ function TabletsView(props) {
   const [search, setSearch] = useState("");
   const [filteredParkings, setFilteredParkings] = useState([]);
   const [showFiltered, setShowFiltered] = useState(false);
+  console.log(props.parkingId)
   useEffect(() => {
     const parkings = async () => {
       try {
@@ -16,19 +17,24 @@ function TabletsView(props) {
           `http://localhost:8081/api/booking/information/${props.parkingId}`
         );
         if (response.status === 200) {
-            console.log(response)
-            setParkings(response.data);
-          } else {
-            console.error("No parking data available");
-          }
-        //
-        //setParkings(response.data);
+         
+          const formattedParkings = response.data.map(parking => ({
+             ...parking,
+             expiry_Time: new Date(parking.expiry_Time).toLocaleString(),
+             starting_Time:new Date(parking.starting_Time).toLocaleString()
+           }));
+      
+         setParkings(formattedParkings);
+       } else {
+         console.error("No parking data available");
+       }
+     ;
       } catch (error) {
         console.error(error);
       }
     };
     parkings();
-  }, []);
+  }, [props.parkingId]);
 
   const handleSearchInputChange = (e) => {
     setSearch(e.target.value);
@@ -74,6 +80,7 @@ function TabletsView(props) {
         </thead>
   <tbody className="table__body">*/}
       {showFiltered ? (
+        filteredParkings.length>0?(
         filteredParkings.map((parking) => (
           <div className="table__body-title" key={parking.id}>
             <div className="table__info">
@@ -96,7 +103,11 @@ function TabletsView(props) {
             </div>
             
           </div>
-        ))
+        ))):(
+          <div>
+            <div className="table__no-parking">No Vehicle Available with this vehicle_num</div>
+          </div>
+        )
       ) : parkings.length > 0 ? (
         parkings.map((parking) => (
           <div className="table__body-title" key={parking.id}>
@@ -123,7 +134,7 @@ function TabletsView(props) {
         ))
       ) : (
         <div>
-          <div colSpan="5">No parkings Available in this warehouse</div>
+          <div className="table__no-parking">No parkings Available in this Location</div>
         </div>
       )}
     </div>

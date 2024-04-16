@@ -17,8 +17,14 @@ function Mobile(props) {
           `http://localhost:8081/api/booking/information/${props.parkingId}`
         );
         if (response.status === 200) {
-            console.log(response)
-            setParkings(response.data);
+             // Modify the expiry_Time format
+             const formattedParkings = response.data.map(parking => ({
+                ...parking,
+                expiry_Time: new Date(parking.expiry_Time).toLocaleString(),
+                starting_Time:new Date(parking.starting_Time).toLocaleString()
+              }));
+            
+            setParkings(formattedParkings);
           } else {
             console.error("No parking data available");
           }
@@ -29,7 +35,7 @@ function Mobile(props) {
       }
     };
     parkings();
-  }, []);
+  }, [props.parkingId]);
 
   const handleSearchInputChange = (e) => {
     setSearch(e.target.value);

@@ -21,7 +21,7 @@ function Bookings() {
                   },
                 }
               );
-             console.log(response.data.id)
+           
                 setParkingId(response.data.id);
             }
           } catch (error) {
