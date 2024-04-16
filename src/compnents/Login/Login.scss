@@ -1,4 +1,11 @@
 @use "../../styles/partials/mixings.scss" as *;
+@use "../../styles/partials/typography.scss" as typo;
+
+body {
+  font-family: typo.$fontss;
+  margin: 0;
+  padding: 0;
+}
 
 .login {
   display: flex;

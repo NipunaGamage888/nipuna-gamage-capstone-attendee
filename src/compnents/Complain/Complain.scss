@@ -1,3 +1,10 @@
+@use "../../styles/partials/typography.scss" as typo;
+
+body {
+  font-family: typo.$fontss;
+  margin: 0;
+  padding: 0;
+}
 .inquiry {
   width: 100%;
   height: 100vh;
