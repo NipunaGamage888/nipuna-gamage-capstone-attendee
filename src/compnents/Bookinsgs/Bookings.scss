@@ -1,0 +1,24 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixings.scss" as *;
+@use "../../styles/partials/typography.scss" as typo;
+
+body {
+  font-family: typo.$fontss;
+  margin: 0;
+  padding: 0;
+}
+.list{
+    &__table-web {
+        display: none;
+        @include tablet {
+          display: table;
+          width: 100%;
+        }
+      }
+      &__table-mobile{
+        @include tablet{
+          display: none;
+        }
+      }
+}
+

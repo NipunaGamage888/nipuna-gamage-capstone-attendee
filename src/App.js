@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import Bookings from "./compnents/Bookinsgs/Bookings";
+import Header from "./compnents/Header/Header";
+import './App.scss'
+import Complain from "./compnents/Complain/Complain";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import Login from "./compnents/Login/Login";
+import { useEffect, useState } from "react";
+
 
 function App() {
+    const [showHeader, setShowHeader] = useState(true);
+    
+
+    useEffect(() => {
+      const handleShowHeader = () => {
+        if(window.location.pathname !== "/"){
+          setShowHeader(true)
+        }else{
+          setShowHeader(false)
+        }
+      };
+      handleShowHeader()
+    } , []);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <BrowserRouter>
+      {showHeader && <Header />}
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/bookings" element={<Bookings/>}/>
+        <Route path="/inquiry" element={<Complain/>}/>
+      </Routes>
+    
+    </BrowserRouter>
   );
 }
 

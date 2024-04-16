@@ -1,0 +1,127 @@
+@use "../../styles/partials/mixings.scss" as *;
+.table {
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  padding-left: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &__head {
+    text-align: left;
+  }
+
+  &__search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+  }
+  &__search {
+    border: none;
+    border-radius: 2px;
+    font-size: 1.2rem;
+    color: #ffd700;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+
+    margin-right: 2rem;
+
+    &::placeholder {
+      color: #ffd700;
+    }
+  }
+  &__button {
+    background-color: #ffd700;
+    border: none;
+    font-size: 1.2rem;
+    height: 3rem;
+    border-radius: 5px;
+    width: 10rem;
+  }
+
+  &__title {
+    white-space: nowrap;
+    padding: 1rem 3rem;
+    align-items: center;
+    @include tablet {
+      padding: 1rem;
+    }
+  }
+  &__heading-icon {
+    width: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__heading {
+    @include tablet {
+      color: yellow;
+      vertical-align: middle;
+      padding-right: 1rem;
+      display: inline-block;
+    }
+  }
+
+  &__body-title {
+    width: 100%;
+    // display: flex;
+    // flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: #ffff00;
+    //justify-content: space-between;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  &__info-name {
+    vertical-align: middle;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    display: inline-block;
+    @include tablet {
+      padding: 1rem;
+    }
+  }
+  &__info-image {
+    width: 1.5rem;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  &__info {
+    font-size: 1.2rem;
+    padding: 3rem;
+    color: white;
+    font-weight: 600;
+    @include tablet {
+      padding: 1rem;
+    }
+  }
+  &__item {
+    vertical-align: middle;
+    padding-right: 1rem;
+    display: inline-block;
+  }
+  &__item-info {
+    vertical-align: middle;
+    width: 1rem;
+    display: inline-block;
+  }
+  &__no-parking{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    height: 80rem;
+  }
+}
