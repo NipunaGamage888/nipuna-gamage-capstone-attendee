@@ -9,7 +9,7 @@ function TabletsView(props) {
   const [search, setSearch] = useState("");
   const [filteredParkings, setFilteredParkings] = useState([]);
   const [showFiltered, setShowFiltered] = useState(false);
-  console.log(props.parkingId)
+  
   useEffect(() => {
     const parkings = async () => {
       try {
