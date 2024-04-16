@@ -16,6 +16,8 @@ function Login() {
       );
       localStorage.setItem("token", response.data.token);
       navigate("/bookings");
+      window.location.reload();
+
     } catch (error) {
       if (error.response && error.response.status === 401) {
         alert("Incorrect User Name or password please try again");
